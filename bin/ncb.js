@@ -4,7 +4,7 @@ import chalk from "chalk";
 import { convertToCommand } from "../lib/index.js";
 
 program
-  .name("cc")
+  .name("ncb")
   .description("将自然语言转换为Bash命令")
   .version("1.0.0")
   .argument("<description>", "自然语言描述你想要的操作")
