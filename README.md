@@ -1,4 +1,4 @@
-# cc-bashTool
+# natural2bash
 
 将自然语言转换为 Bash 命令的 CLI 工具，基于 DeepSeek AI。
 
@@ -6,10 +6,10 @@
 
 ```bash
 #npm
-npm install -g cc-bashtool
+npm i natural2bash
 
 #pnpm
-pnpm install -g cc-bashtool
+pnpm i natural2bash
 ```
 
 # 使用
