@@ -15,8 +15,8 @@ pnpm i natural2bash
 # 使用
 
 ```bash
-cc 列出所有文件
-cc 创建README.md并用code打开
+ncb 列出所有文件
+ncb 创建README.md并用code打开
 ```
 
 选项
