@@ -1,0 +1,33 @@
+# 源代码控制
+.git/
+.gitignore
+.github/
+
+# 测试
+tests/
+coverage/
+*.test.js
+
+# 开发文件
+dev.sh
+fix-pnpm.sh
+.env
+.envrc
+
+# IDE
+.vscode/
+.idea/
+
+# 文档（除了 README.md）
+docs/
+*.md
+!README.md
+
+# 其他
+node_modules/
+npm-debug.log
+EOF
+
+# 打包文件
+*.tgz
+*.tar.gz
