@@ -4,7 +4,7 @@
   "description": "Convert natural language to Bash commands using DeepSeek AI",
   "main": "lib/index.js",
   "bin": {
-    "cc": "./bin/cc.js"
+    "ncb": "./bin/ncb.js"
   },
   "scripts": {
     "prepublishOnly": "npm run test",
