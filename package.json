@@ -7,8 +7,9 @@
     "cc": "./bin/cc.js"
   },
   "scripts": {
-    "test": "echo \"No tests yet\" && exit 0",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests yet'"
   },
   "keywords": [
     "cli",
