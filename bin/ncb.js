@@ -21,7 +21,7 @@ const pkg = JSON.parse(
 program
     .name("ncb")
     .description("将自然语言转换为Bash命令")
-    .version(pkg.version);
+    .version(pkg.version, '-v, --version');
 
 // config 子命令: 管理 API Key
 const configCmd = program.command("config").description("管理配置");
