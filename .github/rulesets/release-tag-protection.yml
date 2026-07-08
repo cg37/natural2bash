@@ -1,0 +1,26 @@
+---
+# Ruleset: Release tag protection
+# Target: v* tags（semver 发布标签）
+# Enforcement: active
+#
+# 说明：
+#   - 防止误删或覆盖已发布的 release tag（如 v1.0.0, v1.2.3）
+#   - 不允许 force push 到 tag
+#   - 配合 release-please 自动发布流程使用
+#   - release-please bot 已加入 bypass list
+---
+name: Release tag protection
+target: tag
+enforcement: active
+bypass_mode: always
+bypass_actors:
+  - actor_id: 6          # 6 = GitHub Actions bot
+    actor_type: Integration
+conditions:
+  ref_name:
+    include:
+      - refs/tags/v*
+    exclude: []
+rules:
+  - type: deletion
+  - type: non_fast_forward

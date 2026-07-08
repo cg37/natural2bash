@@ -1,0 +1,49 @@
+---
+# Ruleset: Main branch protection
+# Target: main branch
+# Enforcement: active
+# （首次建议先用 evaluate 观察一周，确认无异常后改为 active）
+#
+# 说明：
+#   - 禁止直接 push 到 main
+#   - 所有改动必须走 PR，至少 1 人批准
+#   - 新 push 后旧批准自动失效
+#   - PR 中的 conversation 必须 resolve
+#   - 禁止删除 main 分支
+#   - release-please bot 已加入 bypass list，自动发布 PR 不会被阻塞
+---
+name: Main branch protection
+target: branch
+enforcement: active
+bypass_mode: always
+bypass_actors:
+  - actor_id: 6          # 6 = GitHub Actions bot
+    actor_type: Integration
+conditions:
+  ref_name:
+    include:
+      - refs/heads/main
+    exclude: []
+rules:
+  - type: deletion
+  - type: non_fast_forward
+  - type: pull_request
+    parameters:
+      # 需要 1 人批准才能合入
+      required_approving_review_count: 1
+      # 新 push 后旧批准自动失效，防止合入时包含未经审查的新改动
+      dismiss_stale_reviews_on_push: true
+      # 是否需要 code owner 审查（当前项目未配置 CODEOWNERS，设为 false）
+      require_code_owner_review: false
+      # 最近一次 push 是否需要重新批准（与 dismiss_stale_reviews_on_push 配合）
+      require_last_push_approval: true
+      # 要求 PR 中的所有 conversation 都 marked as resolved 才能合入
+      required_review_thread_resolution: true
+  - type: required_status_checks
+    parameters:
+      # strict policy = true 意味着 PR 必须基于最新的 main 分支
+      strict_required_status_checks_policy: true
+      # 目前无 CI checks，后续添加后在这里填入 check 名称
+      # 示例: required_status_checks:
+      #   - context: "test (18.x)"
+      required_status_checks: []
