@@ -1,43 +1,43 @@
 # natural2bash
 
-将自然语言转换为 Bash 命令的 CLI 工具，基于 DeepSeek AI。
+A CLI tool that converts natural language to Bash commands, powered by DeepSeek AI.
 
-[English](README.en.md)
+[中文](README.zh-CN.md)
 
-# 配置
+# Configuration
 
-首次使用需要设置 DeepSeek API Key：
-
-```bash
-ncb config set sk-你的API密钥
-```
-
-也可以使用环境变量：
+You need a DeepSeek API key before first use:
 
 ```bash
-export DEEPSEEK_API_KEY="sk-你的API密钥"
+ncb config set sk-your-api-key-here
 ```
 
-查看当前配置：
+You can also set it via environment variable:
+
+```bash
+export DEEPSEEK_API_KEY="sk-your-api-key-here"
+```
+
+Check current configuration:
 
 ```bash
 ncb config get
 ncb config path
 ```
 
-# 安装
+# Installation
 
 ```bash
 npm i -g natural2bash
 ```
 
-或
+or
 
 ```bash
 pnpm add -g natural2bash
 ```
 
-本地开发：
+For local development:
 
 ```bash
 git clone https://github.com/cg37/natural2bash.git
@@ -45,33 +45,33 @@ cd natural2bash
 npm link
 ```
 
-# 使用
+# Usage
 
 ```bash
-ncb 列出所有文件
-ncb 创建README.md并用code打开
-ncb -d 找出所有大于100MB的日志文件
+ncb list all files
+ncb create README.md and open it with code
+ncb -d find all log files larger than 100MB
 ```
 
-# 选项
+# Options
 
-- `-y`, `--yes` — 自动确认执行，不询问
-- `-d`, `--dry-run` — 只显示生成的命令，不执行
-- `-s`, `--safe` — 安全模式（沙箱模拟执行，开发中）
-- `-h`, `--help` — 显示帮助
-- `-V`, `--version` — 显示版本号
+- `-y`, `--yes` — auto-confirm execution
+- `-d`, `--dry-run` — show the command only, don't execute
+- `-s`, `--safe` — safe mode (sandbox simulation, in development)
+- `-h`, `--help` — display help
+- `-V`, `--version` — display version number
 
-# 交互流程
+# Interactive Flow
 
-运行 `ncb` 后，工具会：
+When you run `ncb`, it:
 
-1. 调用 DeepSeek AI 分析你的自然语言描述
-2. 生成对应的 Bash 命令
-3. 显示命令并询问是否执行（`y` / `e` / 其他）
-4. 确认后自动执行并显示输出
+1. Calls DeepSeek AI to analyze your natural language description
+2. Generates the corresponding Bash command
+3. Shows the command and asks for confirmation (`y` / `e` / other)
+4. Executes the command and shows output if confirmed
 
-选择 `e` 可以用编辑器修改命令后再执行。
+Type `e` to edit the command in your editor before execution.
 
-# 许可证
+# License
 
 MIT
