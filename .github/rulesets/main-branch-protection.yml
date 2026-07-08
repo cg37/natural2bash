@@ -1,18 +1,18 @@
 ---
-# Ruleset: Main branch protection
-# Target: main branch
+# Ruleset: Master branch protection
+# Target: master branch
 # Enforcement: active
 # （首次建议先用 evaluate 观察一周，确认无异常后改为 active）
 #
 # 说明：
-#   - 禁止直接 push 到 main
+#   - 禁止直接 push 到 master
 #   - 所有改动必须走 PR，至少 1 人批准
 #   - 新 push 后旧批准自动失效
 #   - PR 中的 conversation 必须 resolve
-#   - 禁止删除 main 分支
+#   - 禁止删除 master 分支
 #   - release-please bot 已加入 bypass list，自动发布 PR 不会被阻塞
 ---
-name: Main branch protection
+name: Master branch protection
 target: branch
 enforcement: active
 bypass_mode: always
@@ -22,7 +22,7 @@ bypass_actors:
 conditions:
   ref_name:
     include:
-      - refs/heads/main
+  - refs/heads/master
     exclude: []
 rules:
   - type: deletion
