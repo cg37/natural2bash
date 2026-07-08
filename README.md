@@ -59,7 +59,7 @@ ncb -d find all log files larger than 100MB
 - `-d`, `--dry-run` — show the command only, don't execute
 - `-s`, `--safe` — safe mode (sandbox simulation, in development)
 - `-h`, `--help` — display help
-- `-V`, `--version` — display version number
+- `-v`, `--version` — display version number
 
 # Interactive Flow
 
